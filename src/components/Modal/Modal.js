@@ -42,7 +42,9 @@ class ModalStructure extends Component {
 
                             <Row>
                                 <Col xs={12}>
-                                    <div className="divider"></div>
+                                    <div className="divider">
+                                        <span>or</span>
+                                    </div>
                                 </Col>
                             </Row>
 

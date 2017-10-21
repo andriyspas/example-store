@@ -60,6 +60,7 @@ button {
   &__forgot-password {
     font-size: 14px;
     color: #008489;
+    display: block;
     margin: 14px auto 0;
 
     &:hover {
@@ -89,4 +90,14 @@ button {
   height: 1px;
   background-color: #ccc;
   margin: 14px 0;
+  text-align: center;
+
+  div {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    display: inline-block;
+    padding: 0 20px;
+  }
 }
