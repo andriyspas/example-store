@@ -1,6 +1,8 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 
-import {Modal, Form, FormGroup, input, Checkbox, Row, Col} from 'react-bootstrap'
+import {Modal, Form, FormGroup, Row, Col} from 'react-bootstrap';
+
+import LogIn from './LogIn/LogIn';
 
 class ModalStructure extends Component {
     constructor() {
@@ -9,7 +11,7 @@ class ModalStructure extends Component {
         this.state = {
             show: false,
             stateName: 'logIn',
-            username: '',
+            userName: '',
             email: '',
             password: '',
             passwordRepeat: '',
@@ -28,13 +30,61 @@ class ModalStructure extends Component {
         this.flipState('logIn');
     };
 
-    flipState(state) {
-        this.setState({stateName: state});
+    flipState = (state) => {
+       this.setState({stateName: state});
     };
 
-    changeTypeInput() {
+    changeTypeInput = () => {
         this.setState({type: this.state.type === 'password' ? 'input' : 'password'});
-    }
+    };
+
+    handleFirstNameChange = (event) => {
+        this.setState({firstName: event.target.value})
+    };
+
+    handleLastNameChange = (event) => {
+        this.setState({lastName: event.target.value})
+    };
+
+    handlePasswordChange = (event) => {
+        this.setState({password: event.target.value})
+    };
+
+    handlePasswordRepeatChange = (event) => {
+        this.setState({passwordRepeat: event.target.value})
+    };
+
+    handleEmailChange = (event) => {
+        this.setState({email: event.target.value})
+    };
+
+    handleUserNameChange = (event) => {
+        this.setState({userName: event.target.value})
+    };
+
+    send = (event) => {
+        let userRegister = {
+            email: this.state.email,
+            userName: this.state.userName,
+            password: this.state.password,
+            passwordRepeat: this.state.passwordRepeat,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+        };
+
+        fetch('http://localhost:8080/user/register',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', 'Accept': 'application/json'
+                },
+                body: JSON.stringify(userRegister)
+            })
+            .then(res => res.json())
+            .then(res => console.log(res));
+
+            event.preventDefault();
+    };
 
     render() {
         return (
@@ -58,102 +108,13 @@ class ModalStructure extends Component {
                         {
                             this.state.stateName === 'logIn' &&
 
-                            <Form>
-                                <Row>
-                                    <Col xs={12}>
-                                        <button
-                                            className="button-modal button-modal__social button-modal__social--twitter">
-                                            <icon className="icon icon-twitter"></icon>
-                                            <span>Twitter</span>
-                                        </button>
-
-                                        <button
-                                            className="button-modal button-modal__social button-modal__social--facebook">
-                                            <icon className="icon icon-facebook"></icon>
-                                            <span>Facebook</span>
-                                        </button>
-
-                                        <button
-                                            className="button-modal button-modal__social button-modal__social--google">
-                                            <icon className="icon icon-google-plus"></icon>
-                                            <span>Google+</span>
-                                        </button>
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col xs={12} className="text-center">
-                                        <div className="divider">
-                                            <span>or</span>
-                                        </div>
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col xs={12}>
-                                        <FormGroup>
-                                            <icon className="icon icon-mail"></icon>
-
-                                            <input
-                                                onChange={ (event) => this.setState({email: event.target.value}) }
-                                                className="input input__modal"
-                                                type="email"
-                                                placeholder="Email address"
-                                            />
-                                        </FormGroup>
-
-                                        <FormGroup>
-                                            <icon className="icon icon-key"></icon>
-
-                                            <input
-                                                onChange={ (event) => this.setState({password: event.target.value}) }
-                                                className="input input__modal"
-                                                type={ this.state.type }
-                                                placeholder="Password"
-                                            />
-                                        </FormGroup>
-
-
-                                        <FormGroup>
-                                            <Checkbox>
-                                                Remember me
-                                            </Checkbox>
-
-                                            <div
-                                                onClick={ () => this.changeTypeInput() }
-                                                className="button-modal button-modal__forgot-password"
-                                            >
-                                                { this.state.type === 'password' ? 'Show' : 'Hide' } password
-                                            </div>
-                                        </FormGroup>
-
-                                        <button className="button-modal button-modal__login">Log in</button>
-
-                                        <button
-                                            onClick={ () => this.flipState('forgotPassword') }
-                                            className="button-modal button-modal__forgot-password">
-                                            Forward password
-                                        </button>
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col xs={12}>
-                                        <div className="divider"></div>
-                                    </Col>
-                                </Row>
-
-                                <Row>
-                                    <Col xs={12} className="text-center">
-                                        <span>Don’t have an account?</span>
-                                        <button
-                                            className="button-modal button-modal__signup"
-                                            onClick={() => this.flipState('signUpVariant')}>
-                                            Sign up
-                                        </button>
-                                    </Col>
-                                </Row>
-                            </Form>
+                            <LogIn
+                                handleEmail={ this.handleEmailChange }
+                                handlePassword={ this.handlePasswordChange }
+                                typeInput = { this.state.type }
+                                changeTypeInput = { this.changeTypeInput }
+                                flipState = { this.flipState }
+                            />
                         }
 
                         {
@@ -162,20 +123,17 @@ class ModalStructure extends Component {
                             <Form>
                                 <Row>
                                     <Col xs={12}>
-                                        <button
-                                            className="button-modal button-modal__social button-modal__social--twitter">
+                                        <button className="button-modal button-modal__social button-modal__social--twitter">
                                             <icon className="icon icon-twitter"></icon>
                                             <span>Twitter</span>
                                         </button>
 
-                                        <button
-                                            className="button-modal button-modal__social button-modal__social--facebook">
+                                        <button className="button-modal button-modal__social button-modal__social--facebook">
                                             <icon className="icon icon-facebook"></icon>
                                             <span>Facebook</span>
                                         </button>
 
-                                        <button
-                                            className="button-modal button-modal__social button-modal__social--google">
+                                        <button className="button-modal button-modal__social button-modal__social--google">
                                             <icon className="icon icon-google-plus"></icon>
                                             <span>Google+</span>
                                         </button>
@@ -223,7 +181,10 @@ class ModalStructure extends Component {
                         {
                             this.state.stateName === 'signUp' &&
 
-                            <Form>
+                            <Form
+                                autoComplete="off"
+                                onSubmit={ this.send }
+                            >
                                 <Row>
                                     <Col xs={12}>
                                         <FormGroup>
@@ -263,7 +224,7 @@ class ModalStructure extends Component {
                                             <icon className="icon icon-user"></icon>
 
                                             <input
-                                                onChange={ (event) => this.setState({username: event.target.value}) }
+                                                onChange={ (event) => this.setState({userName: event.target.value}) }
                                                 className="input input__modal"
                                                 type="text"
                                                 placeholder="Login"
@@ -292,7 +253,7 @@ class ModalStructure extends Component {
                                             />
                                         </FormGroup>
 
-                                        <button className="button-modal button-modal__login">Register Send</button>
+                                        <button className="button-modal button-modal__login" type="submit">Register Send</button>
                                     </Col>
                                 </Row>
 
