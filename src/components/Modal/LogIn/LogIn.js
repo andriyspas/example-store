@@ -59,22 +59,32 @@ class LogIn extends Component {
 
 
                         <FormGroup>
-                            <Checkbox>
-                                Remember me
-                            </Checkbox>
+                            <Row>
+                                <Col xs={6}>
 
-                            <div
-                                onClick={ () => this.props.changeTypeInput() }
-                                className="button-modal button-modal__forgot-password"
-                            >
-                                { this.props.typeInput === 'password' ? 'Show' : 'Hide' } password
-                            </div>
+                                    {/*<Checkbox>*/}
+                                        {/*Remember me*/}
+                                    {/*</Checkbox>*/}
+
+                                </Col>
+
+                                <Col xs={6} className="text-right">
+                                    <button
+                                        type="button"
+                                        onClick={() => this.props.changeTypeInput()}
+                                        className="button-modal button-modal__show-password"
+                                    >
+                                        { this.props.typeInput === 'password' ? 'Show' : 'Hide' } password
+                                    </button>
+                                </Col>
+                            </Row>
                         </FormGroup>
 
                         <button className="button-modal button-modal__login">Log in</button>
 
                         <button
-                            onClick={ () => this.flipState('forgotPassword') }
+                            type="button"
+                            onClick={() => this.props.flipState('forgotPassword')}
                             className="button-modal button-modal__forgot-password">
                             Forward password
                         </button>
