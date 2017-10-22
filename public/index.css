@@ -1,0 +1,155 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300; }
+
+/* Main Classes */
+.myinput[type="checkbox"]:before {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #808080;
+  content: "";
+  background: #FFF; }
+
+.myinput[type="checkbox"]:after {
+  position: relative;
+  display: block;
+  left: 40px;
+  top: -11px;
+  width: 7px;
+  height: 7px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #B3B3B3 #dcddde #dcddde #B3B3B3;
+  content: "";
+  background-image: linear-gradient(135deg, #B1B6BE 0%, #FFF 100%);
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.myinput[type="checkbox"]:checked:after {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAQAAABuW59YAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAB2SURBVHjaAGkAlv8A3QDyAP0A/QD+Dam3W+kCAAD8APYAAgTVZaZCGwwA5wr0AvcA+Dh+7UX/x24AqK3Wg/8nt6w4/5q71wAAVP9g/7rTXf9n/+9N+AAAtpJa/zf/S//DhP8H/wAA4gzWj2P4lsf0JP0A/wADAHB0Ngka6UmKAAAAAElFTkSuQmCC"), linear-gradient(135deg, #B1B6BE 0%, #FFF 100%); }
+
+.myinput[type="checkbox"]:disabled:after {
+  -webkit-filter: opacity(0.4); }
+
+.myinput[type="checkbox"]:not(:disabled):checked:hover:after {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHCAQAAABuW59YAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAB2SURBVHjaAGkAlv8A3QDyAP0A/QD+Dam3W+kCAAD8APYAAgTVZaZCGwwA5wr0AvcA+Dh+7UX/x24AqK3Wg/8nt6w4/5q71wAAVP9g/7rTXf9n/+9N+AAAtpJa/zf/S//DhP8H/wAA4gzWj2P4lsf0JP0A/wADAHB0Ngka6UmKAAAAAElFTkSuQmCC"), linear-gradient(135deg, #8BB0C2 0%, #FFF 100%); }
+
+.myinput[type="checkbox"]:not(:disabled):hover:after {
+  background-image: linear-gradient(135deg, #8BB0C2 0%, #FFF 100%);
+  border-color: #85A9BB #92C2DA #92C2DA #85A9BB; }
+
+.myinput[type="checkbox"]:not(:disabled):hover:before {
+  border-color: #3D7591; }
+
+.modal-content {
+  border-radius: 0;
+  color: #767676;
+  font-weight: 300;
+  font-size: 18px; }
+
+.modal-body {
+  padding: 30px; }
+
+.modal-header {
+  border: none; }
+
+.form-group {
+  position: relative; }
+  .form-group .icon {
+    position: absolute;
+    left: 12px;
+    font-size: 20px;
+    border-right: 1px solid #dbdbdb;
+    padding-right: 11px;
+    line-height: 41px;
+    box-sizing: border-box; }
+
+button {
+  border: none;
+  background: transparent; }
+
+.button-modal {
+  border-radius: 4px;
+  border: 2px solid transparent;
+  color: #fff; }
+  .button-modal__close {
+    margin-bottom: 14px; }
+  .button-modal__social {
+    width: 170px;
+    padding: 6px 20px; }
+    .button-modal__social--facebook {
+      background-color: #4568b2;
+      margin: 0 14px; }
+    .button-modal__social--google {
+      background-color: #d34836; }
+    .button-modal__social--twitter {
+      background-color: #00aced; }
+    .button-modal__social .icon {
+      float: left;
+      position: relative;
+      top: -1px;
+      font-size: 19px; }
+  .button-modal__login {
+    background: #ff5a5f;
+    color: #fff;
+    padding: 10px 20px;
+    width: 100%; }
+  .button-modal__forgot-password {
+    font-size: 14px;
+    color: #008489;
+    display: block;
+    margin: 14px auto 0; }
+    .button-modal__forgot-password:hover {
+      text-decoration: underline; }
+  .button-modal__signup {
+    color: #008489;
+    font-weight: 400; }
+
+.input {
+  border: 1px solid #dbdbdb;
+  border-radius: 2px;
+  font-weight: 300;
+  width: 100%; }
+  .input__modal {
+    padding: 8px 12px 8px 56px;
+    line-height: 24px;
+    box-shadow: none;
+    z-index: 1;
+    position: relative;
+    background: transparent; }
+
+.divider {
+  padding: 16px 0;
+  font-size: 14px;
+  position: relative; }
+  .divider:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 1px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #dbdbdb; }
+  .divider span {
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    padding: 0 20px; }
+
+::-webkit-input-placeholder {
+  color: #dbdbdb; }
+
+::-moz-placeholder {
+  color: #dbdbdb; }
+
+:-ms-input-placeholder {
+  color: #dbdbdb; }
+
+:-moz-placeholder {
+  color: #dbdbdb; }

@@ -1,0 +1,83 @@
+.icon {
+    font-size: 16px;
+}
+
+.icon:before {
+    content:' ';
+    vertical-align:middle;
+    display: inline-block;
+    background-image: url("../svg/sprite.svg");
+    background-repeat: no-repeat;
+    background-size: 1em 7em;
+}
+
+.no-svg .icon:before {
+    background-image: url("../svg/sprite.png");
+}
+
+
+
+  .icon.icon-close:before {
+      background-position: 0em 0em;
+      width: 1em;
+      height: 1em;
+  }
+
+
+
+
+  .icon.icon-facebook:before {
+      background-position: 0em -1em;
+      width: 1em;
+      height: 1em;
+  }
+
+
+
+
+  .icon.icon-google-plus:before {
+      background-position: 0em -2em;
+      width: 1em;
+      height: 1em;
+  }
+
+
+
+
+  .icon.icon-key:before {
+      background-position: 0em -3em;
+      width: 1em;
+      height: 1em;
+  }
+
+
+
+
+  .icon.icon-mail:before {
+      background-position: 0em -4em;
+      width: 1em;
+      height: 1em;
+  }
+
+
+
+
+  .icon.icon-twitter:before {
+      background-position: 0em -5em;
+      width: 1em;
+      height: 1em;
+  }
+
+
+
+
+  .icon.icon-user:before {
+      background-position: 0em -6em;
+      width: 1em;
+      height: 1em;
+  }
+
+
+
+
+
