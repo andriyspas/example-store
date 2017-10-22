@@ -62,9 +62,6 @@ button {
 
     .icon {
       float: left;
-      position: relative;
-      top: -1px;
-      font-size: 19px;
     }
   }
 
@@ -73,6 +70,10 @@ button {
     color: #fff;
     padding: 10px 20px;
     width: 100%;
+
+    .icon {
+      right: 12px;
+    }
   }
 
   &__forgot-password {
@@ -80,10 +81,6 @@ button {
     color: #008489;
     display: block;
     margin: 14px auto 0;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 
   &__signup {
@@ -94,6 +91,12 @@ button {
   &__show-password {
     font-size: 14px;
     color: #008489;
+  }
+
+  .icon {
+    position: relative;
+    top: -1px;
+    font-size: 19px;
   }
 }
 

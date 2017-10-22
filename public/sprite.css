@@ -8,7 +8,7 @@
     display: inline-block;
     background-image: url("../svg/sprite.svg");
     background-repeat: no-repeat;
-    background-size: 1em 7em;
+    background-size: 1em 8em;
 }
 
 .no-svg .icon:before {
@@ -62,7 +62,7 @@
 
 
 
-  .icon.icon-twitter:before {
+  .icon.icon-mail-white:before {
       background-position: 0em -5em;
       width: 1em;
       height: 1em;
@@ -71,8 +71,17 @@
 
 
 
-  .icon.icon-user:before {
+  .icon.icon-twitter:before {
       background-position: 0em -6em;
+      width: 1em;
+      height: 1em;
+  }
+
+
+
+
+  .icon.icon-user:before {
+      background-position: 0em -7em;
       width: 1em;
       height: 1em;
   }

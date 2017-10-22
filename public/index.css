@@ -48,28 +48,29 @@ button {
     .button-modal__social--twitter {
       background-color: #00aced; }
     .button-modal__social .icon {
-      float: left;
-      position: relative;
-      top: -1px;
-      font-size: 19px; }
+      float: left; }
   .button-modal__login {
     background: #ff5a5f;
     color: #fff;
     padding: 10px 20px;
     width: 100%; }
+    .button-modal__login .icon {
+      right: 12px; }
   .button-modal__forgot-password {
     font-size: 14px;
     color: #008489;
     display: block;
     margin: 14px auto 0; }
-    .button-modal__forgot-password:hover {
-      text-decoration: underline; }
   .button-modal__signup {
     color: #008489;
     font-weight: 400; }
   .button-modal__show-password {
     font-size: 14px;
     color: #008489; }
+  .button-modal .icon {
+    position: relative;
+    top: -1px;
+    font-size: 19px; }
 
 .input {
   border: 1px solid #dbdbdb;
