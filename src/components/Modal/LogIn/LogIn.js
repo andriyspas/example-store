@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import {Form, FormGroup, Checkbox, Row, Col} from 'react-bootstrap'
+import {Form, FormGroup, Checkbox, Row, Col} from 'react-bootstrap';
 
 class LogIn extends Component {
     render() {
@@ -104,6 +104,7 @@ class LogIn extends Component {
                     <Col xs={12} className="text-center">
                         <span>Don’t have an account?</span>
                         <button
+                            type="button"
                             className="button-modal button-modal__signup"
                             onClick={() => this.props.flipState('signUpVariant')}>
                             Sign up
