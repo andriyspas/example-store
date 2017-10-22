@@ -5,7 +5,10 @@ import {Form, FormGroup, Checkbox, Row, Col} from 'react-bootstrap'
 class LogIn extends Component {
     render() {
         return (
-            <Form>
+            <Form
+                autoComplete="off"
+                onSubmit={ this.props.sendLogInForm }
+            >
                 <Row>
                     <Col xs={12}>
                         <button className="button-modal button-modal__social button-modal__social--twitter">

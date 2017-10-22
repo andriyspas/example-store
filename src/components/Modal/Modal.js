@@ -62,8 +62,29 @@ class ModalStructure extends Component {
         this.setState({userName: event.target.value})
     };
 
-    send = (event) => {
-        let userRegister = {
+    sendLogInForm = (event) => {
+        let userLogIn = {
+            email: this.state.email,
+            password: this.state.password
+        };
+
+        fetch('http://localhost:8080/user/login',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', 'Accept': 'application/json'
+                },
+                body: JSON.stringify(userLogIn)
+            })
+            .then(res => res.json())
+            .then(res => console.log(res));
+
+        event.preventDefault();
+    };
+
+
+    sendSignUpForm = (event) => {
+        let userSignUp = {
             email: this.state.email,
             userName: this.state.userName,
             password: this.state.password,
@@ -78,7 +99,7 @@ class ModalStructure extends Component {
                 headers: {
                     'Content-Type': 'application/json', 'Accept': 'application/json'
                 },
-                body: JSON.stringify(userRegister)
+                body: JSON.stringify(userSignUp)
             })
             .then(res => res.json())
             .then(res => console.log(res));
@@ -109,6 +130,7 @@ class ModalStructure extends Component {
                             this.state.stateName === 'logIn' &&
 
                             <LogIn
+                                sendLogInForm = { this.sendLogInForm }
                                 handleEmail={ this.handleEmailChange }
                                 handlePassword={ this.handlePasswordChange }
                                 typeInput = { this.state.type }
@@ -183,7 +205,7 @@ class ModalStructure extends Component {
 
                             <Form
                                 autoComplete="off"
-                                onSubmit={ this.send }
+                                onSubmit={ this.sendSignUpForm }
                             >
                                 <Row>
                                     <Col xs={12}>
