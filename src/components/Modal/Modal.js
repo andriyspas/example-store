@@ -5,6 +5,7 @@ import {Modal, Form, FormGroup, Row, Col} from 'react-bootstrap';
 import LogIn from './LogIn/LogIn';
 import SignUp from './SignUp/SignUp';
 import SignUpVariant from './SignUpVariant/SignUpVariant';
+import ForgotPassword from './ForgotPassword/ForgotPassword';
 
 class ModalStructure extends Component {
     constructor() {
@@ -165,10 +166,8 @@ class ModalStructure extends Component {
                         {
                             this.state.stateName === 'forgotPassword' &&
 
-                            <div>
-
-                            </div>
-
+                            <ForgotPassword flipState = { this.flipState }
+                            />
                         }
 
                     </Modal.Body>

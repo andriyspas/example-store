@@ -40,7 +40,7 @@ class SignUpVariant extends Component {
                     <Col xs={12}>
                         <button
                             type="button"
-                            className="button-modal button-modal__login"
+                            className="button-modal button-modal__submit"
                             onClick={ () => this.props.flipState('signUp')}>
                             <icon className="icon icon-mail-white"></icon>
 

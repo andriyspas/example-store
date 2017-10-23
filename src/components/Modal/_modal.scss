@@ -65,7 +65,7 @@ button {
     }
   }
 
-  &__login {
+  &__submit {
     background: #ff5a5f;
     color: #fff;
     padding: 10px 20px;
@@ -91,6 +91,12 @@ button {
   &__show-password {
     font-size: 14px;
     color: #008489;
+  }
+
+  &__back-to {
+    font-size: 14px;
+    color: #008489;
+    vertical-align: top;
   }
 
   .icon {
@@ -139,6 +145,35 @@ button {
     z-index: 1;
     padding: 0 20px;
   }
+}
+
+.header-modal {
+  font-size: 28px;
+  color: #464646;
+  line-height: 1;
+
+  span {
+    font-weight: 500;
+  }
+
+  .divider {
+    width: 100px;
+  }
+}
+
+.description-modal {
+  margin-bottom: 18px;
+}
+
+.forgot-password-modal {
+  .form-group {
+    margin-bottom: 22px;
+  }
+}
+
+// Style for checkbox
+.checkbox-modal {
+
 }
 
 // Style to placeholder

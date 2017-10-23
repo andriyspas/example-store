@@ -78,7 +78,7 @@ class SignUp extends Component {
                         </FormGroup>
 
                         <button
-                            className="button-modal button-modal__login"
+                            className="button-modal button-modal__submit"
                             type="submit">
                             Register Send
                         </button>

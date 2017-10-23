@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {Form, FormGroup, Checkbox, Row, Col} from 'react-bootstrap';
+import {Form, FormGroup, Row, Col} from 'react-bootstrap';
 
 class LogIn extends Component {
     render() {
@@ -60,15 +60,13 @@ class LogIn extends Component {
                             />
                         </FormGroup>
 
-
                         <FormGroup>
                             <Row>
                                 <Col xs={6}>
-
-                                    {/*<Checkbox>*/}
-                                        {/*Remember me*/}
-                                    {/*</Checkbox>*/}
-
+                                    <label className="checkbox-modal">
+                                        <input type="checkbox" name="checkbox-modal"/>
+                                        <span>Remember me</span>
+                                    </label>
                                 </Col>
 
                                 <Col xs={6} className="text-right">
@@ -83,7 +81,7 @@ class LogIn extends Component {
                             </Row>
                         </FormGroup>
 
-                        <button className="button-modal button-modal__login">Log in</button>
+                        <button className="button-modal button-modal__submit">Log in</button>
 
                         <button
                             type="button"

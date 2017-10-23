@@ -49,12 +49,12 @@ button {
       background-color: #00aced; }
     .button-modal__social .icon {
       float: left; }
-  .button-modal__login {
+  .button-modal__submit {
     background: #ff5a5f;
     color: #fff;
     padding: 10px 20px;
     width: 100%; }
-    .button-modal__login .icon {
+    .button-modal__submit .icon {
       right: 12px; }
   .button-modal__forgot-password {
     font-size: 14px;
@@ -67,6 +67,10 @@ button {
   .button-modal__show-password {
     font-size: 14px;
     color: #008489; }
+  .button-modal__back-to {
+    font-size: 14px;
+    color: #008489;
+    vertical-align: top; }
   .button-modal .icon {
     position: relative;
     top: -1px;
@@ -104,6 +108,21 @@ button {
     position: relative;
     z-index: 1;
     padding: 0 20px; }
+
+.header-modal {
+  font-size: 28px;
+  color: #464646;
+  line-height: 1; }
+  .header-modal span {
+    font-weight: 500; }
+  .header-modal .divider {
+    width: 100px; }
+
+.description-modal {
+  margin-bottom: 18px; }
+
+.forgot-password-modal .form-group {
+  margin-bottom: 22px; }
 
 ::-webkit-input-placeholder {
   color: #dbdbdb; }
