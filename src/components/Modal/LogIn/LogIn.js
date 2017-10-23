@@ -3,36 +3,11 @@ import React, { Component } from 'react';
 import {Form, FormGroup, Row, Col} from 'react-bootstrap';
 
 class LogIn extends Component {
-    constructor() {
-        super();
-
-        sendLogInForm = (event) => {
-            let userLogIn = {
-                email: this.state.email,
-                password: this.state.password
-            };
-
-            fetch('http://localhost:8080/user/login',
-                {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json', 'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(userLogIn)
-                })
-                .then(res => res.json())
-                .then(res => console.log(res));
-
-            event.preventDefault();
-        };
-
-    }
-
     render() {
         return (
             <Form
                 autoComplete="off"
-                onSubmit={ this.sendLogInForm }
+                onSubmit={ this.props.sendLogInForm }
             >
                 <Row>
                     <Col xs={12}>
@@ -63,7 +38,7 @@ class LogIn extends Component {
 
                 <Row>
                     <Col xs={12}>
-                        <FormGroup>
+                        <FormGroup className="is-required">
                             <icon className="icon icon-mail"></icon>
 
                             <input
@@ -72,6 +47,8 @@ class LogIn extends Component {
                                 type="email"
                                 placeholder="Email address"
                             />
+
+                            <div className="input__message">Email is required.</div>
                         </FormGroup>
 
                         <FormGroup>

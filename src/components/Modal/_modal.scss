@@ -29,6 +29,8 @@
   }
 }
 
+// Button
+
 button {
   border: none;
   background: transparent;
@@ -106,6 +108,8 @@ button {
   }
 }
 
+// Input
+
 .input {
   border: 1px solid #dbdbdb;
   border-radius: 2px;
@@ -119,6 +123,13 @@ button {
     z-index: 1;
     position: relative;
     background: transparent;
+  }
+
+  &__message {
+    display: none;
+    font-size: 15px;
+    color: red;
+    margin-top: 6px;
   }
 }
 
@@ -146,6 +157,19 @@ button {
     padding: 0 20px;
   }
 }
+
+.is-required {
+  .input,
+  .icon {
+    border-color: red;
+  }
+
+  .input__message {
+    display: block;
+  }
+}
+
+// Other elements
 
 .header-modal {
   font-size: 28px;

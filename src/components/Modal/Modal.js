@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import {Modal, Form, FormGroup, Row, Col} from 'react-bootstrap';
+import {Modal, Row, Col} from 'react-bootstrap';
 
 import LogIn from './LogIn/LogIn';
 import SignUp from './SignUp/SignUp';
@@ -75,6 +75,51 @@ class ModalStructure extends Component {
     };
 
 
+    sendLogInForm = (event) => {
+        let userLogIn = {
+            email: this.state.email,
+            password: this.state.password
+        };
+
+        fetch('http://localhost:8080/user/login',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', 'Accept': 'application/json'
+                },
+                body: JSON.stringify(userLogIn)
+            })
+            .then(res => res.json())
+            .then(res => console.log(res));
+
+        event.preventDefault();
+    };
+
+
+    sendSignUpForm = (event) => {
+        let userSignUp = {
+            email: this.state.email,
+            userName: this.state.userName,
+            password: this.state.password,
+            passwordRepeat: this.state.passwordRepeat,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+        };
+
+        fetch('http://localhost:8080/user/register',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json', 'Accept': 'application/json'
+                },
+                body: JSON.stringify(userSignUp)
+            })
+            .then(res => res.json())
+            .then(res => console.log(res));
+
+            event.preventDefault();
+    };
+
     render() {
         return (
             <div>
@@ -98,6 +143,7 @@ class ModalStructure extends Component {
                             this.state.stateName === 'logIn' &&
 
                             <LogIn
+                                sendLogInForm = { this.sendLogInForm }
                                 handleEmail={ this.handleEmailChange }
                                 handlePassword={ this.handlePasswordChange }
                                 typeInput = { this.state.type }
@@ -116,6 +162,7 @@ class ModalStructure extends Component {
                             this.state.stateName === 'signUp' &&
 
                             <SignUp
+                                sendSignUpForm = { this.sendSignUpForm }
                                 handleEmail={ this.handleEmailChange }
                                 handleUserName={ this.handleUserNameChange }
                                 handleFirstName={ this.handleFirstNameChange }
