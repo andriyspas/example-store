@@ -65,50 +65,15 @@ class ModalStructure extends Component {
         this.setState({userName: event.target.value})
     };
 
-    sendLogInForm = (event) => {
-        let userLogIn = {
-            email: this.state.email,
-            password: this.state.password
-        };
-
-        fetch('http://localhost:8080/user/login',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json', 'Accept': 'application/json'
-                },
-                body: JSON.stringify(userLogIn)
-            })
-            .then(res => res.json())
-            .then(res => console.log(res));
-
-        event.preventDefault();
+    validateField = (value) => {
+        return value !== '' && value !== undefined;
     };
 
-
-    sendSignUpForm = (event) => {
-        let userSignUp = {
-            email: this.state.email,
-            userName: this.state.userName,
-            password: this.state.password,
-            passwordRepeat: this.state.passwordRepeat,
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-        };
-
-        fetch('http://localhost:8080/user/register',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json', 'Accept': 'application/json'
-                },
-                body: JSON.stringify(userSignUp)
-            })
-            .then(res => res.json())
-            .then(res => console.log(res));
-
-            event.preventDefault();
+    validateFieldEmail = (email) => {
+        let regex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        return regex.test(email);
     };
+
 
     render() {
         return (
@@ -133,7 +98,6 @@ class ModalStructure extends Component {
                             this.state.stateName === 'logIn' &&
 
                             <LogIn
-                                sendLogInForm = { this.sendLogInForm }
                                 handleEmail={ this.handleEmailChange }
                                 handlePassword={ this.handlePasswordChange }
                                 typeInput = { this.state.type }
@@ -152,7 +116,6 @@ class ModalStructure extends Component {
                             this.state.stateName === 'signUp' &&
 
                             <SignUp
-                                sendSignUpForm = { this.sendSignUpForm }
                                 handleEmail={ this.handleEmailChange }
                                 handleUserName={ this.handleUserNameChange }
                                 handleFirstName={ this.handleFirstNameChange }
@@ -166,8 +129,7 @@ class ModalStructure extends Component {
                         {
                             this.state.stateName === 'forgotPassword' &&
 
-                            <ForgotPassword flipState = { this.flipState }
-                            />
+                            <ForgotPassword flipState = { this.flipState }/>
                         }
 
                     </Modal.Body>

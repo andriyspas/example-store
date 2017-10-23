@@ -3,11 +3,36 @@ import React, { Component } from 'react';
 import {Form, FormGroup, Row, Col} from 'react-bootstrap';
 
 class LogIn extends Component {
+    constructor() {
+        super();
+
+        sendLogInForm = (event) => {
+            let userLogIn = {
+                email: this.state.email,
+                password: this.state.password
+            };
+
+            fetch('http://localhost:8080/user/login',
+                {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json', 'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(userLogIn)
+                })
+                .then(res => res.json())
+                .then(res => console.log(res));
+
+            event.preventDefault();
+        };
+
+    }
+
     render() {
         return (
             <Form
                 autoComplete="off"
-                onSubmit={ this.props.sendLogInForm }
+                onSubmit={ this.sendLogInForm }
             >
                 <Row>
                     <Col xs={12}>
