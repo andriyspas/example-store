@@ -83,7 +83,12 @@ class LogIn extends Component {
                             </Row>
                         </FormGroup>
 
-                        <button className="button-modal button-modal__submit">Log in</button>
+                        <button
+                            className="button-modal button-modal__submit"
+                            disabled={ !this.props.fieldValid() }
+                        >
+                            Log in
+                        </button>
 
                         <button
                             type="button"

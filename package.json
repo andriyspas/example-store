@@ -9,7 +9,8 @@
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^15.6.1",
-    "react-scripts": "1.0.14"
+    "react-scripts": "1.0.14",
+    "react-validation": "^3.0.7"
   },
   "scripts": {
     "start": "react-scripts start",

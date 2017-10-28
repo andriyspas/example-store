@@ -24,6 +24,21 @@ class ModalStructure extends Component {
         }
     };
 
+
+    validateField = (value) => {
+        return value !== '' && value !== undefined;
+    };
+
+    validateFieldEmail = (email) => {
+        let regex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+        return regex.test(email);
+    };
+
+    fieldValid = () => {
+        return this.validateFieldEmail(this.state.email) && this.validateField(this.state.password)
+    };
+
+
     close = () => {
         this.setState({show: false})
     };
@@ -34,7 +49,7 @@ class ModalStructure extends Component {
     };
 
     flipState = (state) => {
-       this.setState({stateName: state});
+        this.setState({stateName: state});
     };
 
     changeTypeInput = () => {
@@ -64,16 +79,6 @@ class ModalStructure extends Component {
     handleUserNameChange = (event) => {
         this.setState({userName: event.target.value})
     };
-
-    validateField = (value) => {
-        return value !== '' && value !== undefined;
-    };
-
-    validateFieldEmail = (email) => {
-        let regex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-        return regex.test(email);
-    };
-
 
     sendLogInForm = (event) => {
         let userLogIn = {
@@ -117,7 +122,7 @@ class ModalStructure extends Component {
             .then(res => res.json())
             .then(res => console.log(res));
 
-            event.preventDefault();
+        event.preventDefault();
     };
 
     render() {
@@ -143,40 +148,41 @@ class ModalStructure extends Component {
                             this.state.stateName === 'logIn' &&
 
                             <LogIn
-                                sendLogInForm = { this.sendLogInForm }
+                                sendLogInForm={ this.sendLogInForm }
                                 handleEmail={ this.handleEmailChange }
                                 handlePassword={ this.handlePasswordChange }
-                                typeInput = { this.state.type }
-                                changeTypeInput = { this.changeTypeInput }
-                                flipState = { this.flipState }
+                                typeInput={ this.state.type }
+                                changeTypeInput={ this.changeTypeInput }
+                                flipState={ this.flipState }
+                                fieldValid={ this.fieldValid }
                             />
                         }
 
                         {
                             this.state.stateName === 'signUpVariant' &&
 
-                            <SignUpVariant flipState = { this.flipState }/>
+                            <SignUpVariant flipState={ this.flipState }/>
                         }
 
                         {
                             this.state.stateName === 'signUp' &&
 
                             <SignUp
-                                sendSignUpForm = { this.sendSignUpForm }
+                                sendSignUpForm={ this.sendSignUpForm }
                                 handleEmail={ this.handleEmailChange }
                                 handleUserName={ this.handleUserNameChange }
                                 handleFirstName={ this.handleFirstNameChange }
                                 handleLastName={ this.handleLastNameChange }
                                 handlePasswordRepeat={ this.handlePasswordRepeatChange }
                                 handlePassword={ this.handlePasswordChange }
-                                flipState = { this.flipState }
+                                flipState={ this.flipState }
                             />
                         }
 
                         {
                             this.state.stateName === 'forgotPassword' &&
 
-                            <ForgotPassword flipState = { this.flipState }/>
+                            <ForgotPassword flipState={ this.flipState }/>
                         }
 
                     </Modal.Body>
