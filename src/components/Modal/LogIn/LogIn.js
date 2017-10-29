@@ -48,7 +48,7 @@ class LogIn extends Component {
                                 placeholder="Email address"
                             />
 
-                            <div className="input__message">Email is required.</div>
+                          {this.props.loginEmailValid === false && <div className="input__message">Email is invalid.</div>}
                         </FormGroup>
 
                         <FormGroup>
@@ -60,6 +60,7 @@ class LogIn extends Component {
                                 type={ this.props.typeInput }
                                 placeholder="Password"
                             />
+                          {this.props.loginPasswordValid === false && <div className="input__message">Password is invalid.</div>}
                         </FormGroup>
 
                         <FormGroup>
@@ -85,7 +86,7 @@ class LogIn extends Component {
 
                         <button
                             className="button-modal button-modal__submit"
-                            disabled={ !this.props.fieldValid() }
+                            // disabled={ !this.props.fieldValid() }
                         >
                             Log in
                         </button>

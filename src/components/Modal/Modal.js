@@ -20,7 +20,9 @@ class ModalStructure extends Component {
             passwordRepeat: '',
             firstName: '',
             lastName: '',
-            type: 'password'
+            type: 'password',
+            loginEmailValid: true,
+            loginPasswordValid: true
         }
     };
 
@@ -35,7 +37,9 @@ class ModalStructure extends Component {
     };
 
     fieldValid = () => {
-        return this.validateFieldEmail(this.state.email) && this.validateField(this.state.password)
+      this.setState({loginEmailValid: this.validateFieldEmail(this.state.email), loginPasswordValid: this.validateField(this.state.password)}, function () {
+        return this.state.loginEmailValid && this.state.loginPasswordValid;
+      });
     };
 
 
@@ -85,19 +89,22 @@ class ModalStructure extends Component {
             email: this.state.email,
             password: this.state.password
         };
-
-        fetch('http://localhost:8080/user/login',
+        if(this.fieldValid()) {
+          fetch('http://localhost:8080/user/login',
             {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json', 'Accept': 'application/json'
-                },
-                body: JSON.stringify(userLogIn)
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json', 'Accept': 'application/json'
+              },
+              body: JSON.stringify(userLogIn)
             })
             .then(res => res.json())
             .then(res => console.log(res));
+        }
 
-        event.preventDefault();
+      event.preventDefault();
+
+
     };
 
 
@@ -155,6 +162,8 @@ class ModalStructure extends Component {
                                 changeTypeInput={ this.changeTypeInput }
                                 flipState={ this.flipState }
                                 fieldValid={ this.fieldValid }
+                                loginEmailValid = {this.state.loginEmailValid}
+                                loginPasswordValid = {this.state.loginPasswordValid}
                             />
                         }
 
